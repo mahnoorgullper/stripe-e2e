@@ -1,0 +1,24 @@
+{
+  "name": "stripe-e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-end automated tests for Stripe payment processing workflow",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:api": "playwright test tests/api/",
+    "test:gui": "playwright test tests/gui/",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results",
+    "auth:setup": "node scripts/auth.setup.js",
+    "secrets:encrypt": "node scripts/encrypt-secrets.js",
+    "secrets:decrypt": "node scripts/decrypt-secrets.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "allure-playwright": "^3.0.0",
+    "allure-js-commons": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "stripe": "^15.7.0"
+  }
+}
