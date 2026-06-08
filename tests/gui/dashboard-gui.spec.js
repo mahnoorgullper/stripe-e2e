@@ -59,7 +59,7 @@ test.describe("Stripe Dashboard GUI Validation", () => {
     await expect(testModeBadge).toBeVisible({ timeout: 15_000 });
 
     allure.attachment("Dashboard After Login", await page.screenshot(), "image/png");
-    console.log("✅ Authenticated on Stripe Dashboard (test mode)");
+    console.log("Authenticated on Stripe Dashboard (test mode)");
   });
 
   test("should find the payment in the Payments list with correct amount", async ({ page }) => {

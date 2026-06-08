@@ -1,5 +1,5 @@
 /**
- * 03-retrieve-payment-status.spec.js
+ * retrieve-payment-status.spec.js
  * Tests: Retrieving and verifying the PaymentIntent status after confirmation
  */
 
@@ -48,7 +48,7 @@ test.describe("Payment Status Retrieval", () => {
     // Charge linkage
     expect(intent.latest_charge).toBe(state.chargeId);
 
-    console.log(`✅ PaymentIntent ${intent.id} has status: ${intent.status}`);
+    console.log(`PaymentIntent ${intent.id} has status: ${intent.status}`);
   });
 
   test("should retrieve the underlying Charge with correct details", async () => {
@@ -85,7 +85,7 @@ test.describe("Payment Status Retrieval", () => {
     expect(charge.payment_method_details.card.brand).toBe("visa");
     expect(charge.payment_method_details.card.last4).toBe("4242");
 
-    console.log(`✅ Charge ${charge.id}: paid=${charge.paid}, captured=${charge.captured}`);
+    console.log(` Charge ${charge.id}: paid=${charge.paid}, captured=${charge.captured}`);
   });
 
   test("should return 404 for a non-existent PaymentIntent", async () => {

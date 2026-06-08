@@ -31,7 +31,6 @@ async function createPaymentIntent({ amount, currency, metadata = {} }) {
     payment_method_types: ["card"],
     metadata: {
       test_run: "playwright-e2e",
-      ...metadata,
     },
   });
 }

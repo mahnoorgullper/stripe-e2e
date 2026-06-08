@@ -1,5 +1,5 @@
 /**
- * 02-confirm-payment-intent.spec.js
+ * confirm-payment-intent.spec.js
  * Tests: Confirming the PaymentIntent with test card numbers
  */
 
@@ -51,7 +51,7 @@ test.describe("Payment Intent Confirmation", () => {
       confirmedAt: Date.now(),
     });
 
-    console.log(`✅ Confirmed PaymentIntent: ${confirmed.id} → status: ${confirmed.status}`);
+    console.log(`Confirmed PaymentIntent: ${confirmed.id} → status: ${confirmed.status}`);
     console.log(`   Charge ID: ${confirmed.latest_charge}`);
   });
 
@@ -76,7 +76,7 @@ test.describe("Payment Intent Confirmation", () => {
       code: "card_declined",
     });
 
-    console.log("✅ Card decline handled correctly");
+    console.log("Card decline handled correctly");
   });
 
   test("should fail with insufficient funds test card", async () => {

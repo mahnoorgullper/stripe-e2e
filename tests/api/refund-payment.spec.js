@@ -1,5 +1,5 @@
 /**
- * 05-refund-payment.spec.js
+ * refund-payment.spec.js
  * Tests: Issuing a full refund and verifying the refund status
  */
 
@@ -57,7 +57,7 @@ test.describe("Payment Refund", () => {
     // Persist refund ID
     writeState({ refundId: refund.id });
 
-    console.log(`✅ Refund issued: ${refund.id} → status: ${refund.status}`);
+    console.log(`Refund issued: ${refund.id} → status: ${refund.status}`);
   });
 
   test("should update the Charge to reflect refunded amount", async () => {
@@ -81,7 +81,7 @@ test.describe("Payment Refund", () => {
     expect(charge.amount_refunded).toBe(AMOUNT);
     expect(charge.refunded).toBe(true);
 
-    console.log(`✅ Charge ${charge.id}: amount_refunded=${charge.amount_refunded}, refunded=${charge.refunded}`);
+    console.log(`Charge ${charge.id}: amount_refunded=${charge.amount_refunded}, refunded=${charge.refunded}`);
   });
 
   test("should list the refund in the refunds collection for the charge", async () => {
@@ -110,7 +110,7 @@ test.describe("Payment Refund", () => {
     expect(ourRefund.amount).toBe(AMOUNT);
     expect(ourRefund.status).toBe("succeeded");
 
-    console.log(`✅ Refund ${state.refundId} found in refund list`);
+    console.log(`Refund ${state.refundId} found in refund list`);
   });
 
   test("should prevent double-refund on an already-refunded charge", async () => {
@@ -128,7 +128,7 @@ test.describe("Payment Refund", () => {
       refundPaymentIntent(state.paymentIntentId)
     ).rejects.toThrow(/charge_already_refunded|nothing_to_refund|already been refunded/i);
 
-    console.log("✅ Double refund correctly prevented");
+    console.log("Double refund correctly prevented");
   });
 
   test("should support partial refund on a separate payment", async () => {
@@ -171,6 +171,6 @@ test.describe("Payment Refund", () => {
     expect(charge.amount_refunded).toBe(partialAmount);
     expect(charge.refunded).toBe(false); // Not fully refunded
 
-    console.log(`✅ Partial refund of ${partialAmount} cents issued and verified`);
+    console.log(`Partial refund of ${partialAmount} cents issued and verified`);
   });
 });

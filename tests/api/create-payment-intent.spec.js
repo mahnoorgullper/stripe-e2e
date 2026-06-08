@@ -1,5 +1,5 @@
 /**
- * 01-create-payment-intent.spec.js
+ * create-payment-intent.spec.js
  * Tests: Creating a PaymentIntent via Stripe API
  */
 
@@ -70,7 +70,7 @@ test.describe("Payment Intent Creation", () => {
       createdAt: intent.created,
     });
 
-    console.log(`✅ Created PaymentIntent: ${intent.id}`);
+    console.log(`Created PaymentIntent: ${intent.id}`);
   });
 
   test("should reject PaymentIntent with zero amount", async () => {
