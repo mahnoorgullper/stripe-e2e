@@ -145,7 +145,7 @@ test.describe("Webhook Event Verification", () => {
       },
     };
 
-    // Validate charge.refunded payload structure
+    // Validate charge.refunded payload 
     expect(mockRefundEvent.type).toBe("charge.refunded");
     expect(mockRefundEvent.data.object.refunded).toBe(true);
     expect(mockRefundEvent.data.object.amount_refunded).toBe(
