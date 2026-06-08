@@ -16,7 +16,7 @@ const path = require("path");
 require("dotenv").config();
 
 const DASHBOARD_URL = "https://dashboard.stripe.com";
-const AMOUNT_DISPLAY = "$20.00"; // $20.00 = 2000 cents
+const AMOUNT_DISPLAY = "$20.00"; 
 const AUTH_FILE = path.join(__dirname, "../../.auth/stripe-dashboard.json");
 
 // Helper: navigate to the test mode payments list
@@ -102,7 +102,7 @@ test.describe("Stripe Dashboard GUI Validation", () => {
       );
 
     await expect(paymentRow).toBeVisible({ timeout: 10_000 });
-    console.log(`✅ Payment found in Payments list`);
+    console.log(`Payment found in Payments list`);
   });
 
   test("should show payment status as Succeeded on detail page", async ({ page }) => {
@@ -130,7 +130,7 @@ test.describe("Stripe Dashboard GUI Validation", () => {
     await expect(amountText).toBeVisible({ timeout: 10_000 });
 
     allure.attachment("Payment Detail Page", await page.screenshot(), "image/png");
-    console.log("✅ Payment detail page shows status: Succeeded");
+    console.log("Payment detail page shows status: Succeeded");
   });
 
   test("should display the refund on the payment detail page", async ({ page }) => {
@@ -157,7 +157,7 @@ test.describe("Stripe Dashboard GUI Validation", () => {
     await expect(refundAmountText.first()).toBeVisible({ timeout: 10_000 });
 
     allure.attachment("Payment Detail - Refund Visible", await page.screenshot(), "image/png");
-    console.log("✅ Refund is visible on the payment detail page");
+    console.log("Refund is visible on the payment detail page");
   });
 
   test("should show the correct payment amount in the Payments overview", async ({ page }) => {
@@ -184,6 +184,6 @@ test.describe("Stripe Dashboard GUI Validation", () => {
     await expect(usdText).toBeVisible({ timeout: 10_000 });
 
     allure.attachment("Amount Verification", await page.screenshot(), "image/png");
-    console.log("✅ Correct amount ($20.00 USD) displayed on Stripe Dashboard");
+    console.log(" Correct amount ($20.00 USD) displayed on Stripe Dashboard");
   });
 });
