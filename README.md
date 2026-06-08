@@ -72,9 +72,12 @@ Open `.env` and fill in your credentials:
 
 > **All credentials stay local.** `.env` is gitignored and never committed to the repo.
 
-### 3. Save your Stripe Dashboard session (required for GUI tests)
+### 3. Save your Stripe Dashboard session ⚠️ MANDATORY for GUI tests
 
-Stripe blocks automated logins with CAPTCHA. Run this **once** to log in manually and save your session:
+> **If you skip this step, all 5 GUI tests will be skipped automatically with the message:**
+> `Auth session not found — run npm run auth:setup first`
+
+Stripe blocks automated logins with CAPTCHA, so you must log in once manually. Run:
 
 ```bash
 npm run auth:setup
@@ -82,7 +85,9 @@ npm run auth:setup
 
 A browser window will open. Log in to your Stripe account normally (complete any CAPTCHA or 2FA). The script detects when you're logged in and saves your session to `.auth/stripe-dashboard.json` automatically. GUI tests reuse this session so no login is needed during test runs.
 
-> `.auth/` is gitignored — the session file stays on your machine only.
+- You only need to do this **once per machine**
+- If your session expires later, just run `npm run auth:setup` again
+- `.auth/` is gitignored — the session file stays on your machine only
 
 ### 4. Run the tests
 

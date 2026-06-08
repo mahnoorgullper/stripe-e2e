@@ -6,7 +6,7 @@
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:api": "playwright test tests/api/",
-    "test:gui": "playwright test tests/gui/",
+    "test:gui": "playwright test --project=gui-tests",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:serve": "allure serve allure-results",

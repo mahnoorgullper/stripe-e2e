@@ -1,6 +1,10 @@
 // @ts-check
 const { defineConfig, devices } = require("@playwright/test");
+const fs = require("fs");
 require("dotenv").config();
+
+const authFile = ".auth/stripe-dashboard.json";
+const storageState = fs.existsSync(authFile) ? authFile : undefined;
 
 module.exports = defineConfig({
   testDir: "./tests",
@@ -46,8 +50,8 @@ module.exports = defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         viewport: { width: 1280, height: 720 },
-        // Reuse saved session from auth.setup.js — avoids CAPTCHA on every run
-        storageState: ".auth/stripe-dashboard.json",
+        headless: !!process.env.CI,
+        storageState,
       },
     },
   ],
