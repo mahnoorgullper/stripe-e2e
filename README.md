@@ -17,13 +17,12 @@ Create PaymentIntent → Confirm (test card) → Retrieve status
 stripe-e2e/
 ├── tests/
 │   ├── api/
-│   │   ├── 01-create-payment-intent.spec.js   # Create & validate PaymentIntent
-│   │   ├── 02-confirm-payment-intent.spec.js  # Confirm with test cards
-│   │   ├── 03-retrieve-payment-status.spec.js # Retrieve & verify status
-│   │   ├── 04-webhook-verification.spec.js    # Webhook signature verification
-│   │   └── 05-refund-payment.spec.js          # Full & partial refunds
+│   │   ├── create-payment-intent.spec.js   # Create & validate PaymentIntent
+│   │   ├── confirm-payment-intent.spec.js  # Confirm with test cards
+│   │   ├── retrieve-payment-status.spec.js # Retrieve & verify status
+│   │   └── refund-payment.spec.js          # Full & partial refunds
 │   └── gui/
-│       └── 06-dashboard-gui.spec.js           # Stripe Dashboard GUI checks
+│       └── dashboard-gui.spec.js           # Stripe Dashboard GUI checks
 ├── utils/
 │   ├── stripe-api.js      # Stripe SDK wrapper & test payment method constants
 │   └── shared-state.js    # Passes paymentIntentId/chargeId between test files
