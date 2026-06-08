@@ -37,7 +37,12 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Install Allure CLI
-        run: npm install -g allure-commandline --save-dev
+        run: |
+          curl -o allure.tgz -Ls https://github.com/allure-framework/allure2/releases/download/2.29.0/allure-2.29.0.tgz
+          tar -zxf allure.tgz
+          sudo mv allure-2.29.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
+          allure --version
 
       - name: Run API tests
         id: api_tests
